@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Lenis from '@studio-freight/lenis'
-import Preloader from '../components/Preloader'
-import Landing from '../components/Landing'
+import Preloader from '@/components/Preloader/Preloader'
+import Landing from '@/components/Landing/Landing'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)

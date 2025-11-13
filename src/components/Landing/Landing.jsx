@@ -1,21 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
-import styles from "./style.module.scss";
 import { slideUp } from "./animation";
 import dynamic from "next/dynamic";
-
-// Ganti import ini:
 const ColorBends = dynamic(() => import("./ColorBends"), { ssr: false });
 
 export default function LandingPage() {
   return (
-    <motion.main
-      variants={slideUp}
-      initial="initial"
-      animate="enter"
-      className={styles.landing}
+    <motion.main variants={slideUp} initial="initial" animate="enter"
     >
-      <div className="w-full h-screen relative overflow-hidden">
+      <div className="w-full h-screen relative overflow-hidden bg-secondary">
         <ColorBends
           colors={["#DF2935"]}
           rotation={0}
