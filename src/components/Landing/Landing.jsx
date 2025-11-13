@@ -11,7 +11,7 @@ export default function LandingPage() {
       <div className="w-full h-screen relative overflow-hidden bg-secondary">
         <ColorBends
           colors={["#DF2935"]}
-          rotation={0}
+          rotation={-50}
           speed={0.2}
           scale={1}
           frequency={1}
