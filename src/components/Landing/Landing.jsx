@@ -10,8 +10,7 @@ export default function LandingPage() {
       <div className="w-full h-screen relative overflow-hidden bg-secondary">
 
         <ColorBends
-          colors={["#A3D8F4", "#F7A9A8", "#C4F1BE"]
-}
+          colors={["#A3D8F4", "#F7A9A8", "#C4F1BE"]}
           rotation={-50}
           speed={0.5}
           scale={1}
@@ -22,6 +21,17 @@ export default function LandingPage() {
           noise={0.01}
           transparent={true}
         />
+
+        <div className="absolute inset-0 items-center justify-center z-10 pointer-events-none flex flex-col font-harmonditalic text-tertiary">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">In the Mess</h1>
+          <div className="flex flex-row">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">of</h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Life</h1>
+          <h1 className="text-xl  md:text-2xl lg:text-3xl xl:text-4xl">&</h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Work</h1>
+          </div>
+
+        </div>
 
       </div>
     </motion.main>
