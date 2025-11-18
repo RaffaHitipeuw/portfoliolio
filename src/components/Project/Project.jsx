@@ -43,7 +43,6 @@ export default function Project() {
     },
   ];
 
-  // LINE ANIMATION
   useEffect(() => {
     gsap.utils.toArray(".line").forEach((line) => {
       gsap.fromTo(
@@ -63,7 +62,6 @@ export default function Project() {
     });
   }, []);
 
-  // EXPAND ANIMATION
   useEffect(() => {
     refs.current.forEach((el, i) => {
       if (!el) return;
@@ -100,7 +98,6 @@ export default function Project() {
         {data.map((row, idx) => (
           <div key={idx} className="relative">
 
-            {/* ROW */}
             <div
               onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
               className="group grid grid-cols-4 py-5 font-helvetica transition-all duration-200 cursor-pointer"
@@ -118,11 +115,9 @@ export default function Project() {
                 {row.category}
               </span>
 
-              {/* LINE TETAP ADA DI SINI */}
               <div className="absolute bottom-0 left-0 h-px bg-white/30 w-full line group-hover:bg-white/70 transition-all duration-300"></div>
             </div>
 
-            {/* EXPAND CONTENT — DIPOSISIKAN DI LUAR ROW */}
             <div
               ref={(el) => (refs.current[idx] = el)}
               className="overflow-hidden h-0 opacity-0"
@@ -139,7 +134,6 @@ export default function Project() {
                 see web
               </a>
 
-              {/* GARIS BAWAH TAMBAHAN UNTUK PEMBATAS */}
               <div className="w-full h-px bg-white/20 mt-6"></div>
             </div>
 
