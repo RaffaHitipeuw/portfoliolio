@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import Lenis from '@studio-freight/lenis'
 import Preloader from '@/components/Preloader/Preloader'
 import Landing from '@/components/Landing/Landing'
+import Project from '@/components/Project/Project'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -34,6 +35,7 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence>
       <Landing />
+      <Project />
       </>
   )
 }

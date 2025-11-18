@@ -50,16 +50,16 @@ export default function Index() {
   variants={slideUp}
   initial="initial"
   exit="exit"
-  className="h-screen w-screen flex items-center justify-center fixed z-99 bg-secondary"
+  className="h-screen w-screen flex items-center justify-center fixed z-99 bg-[#D9D9D9]"
 >
   {dimension.width > 0 && (
     <>
-      <motion.p variants={opacity} initial="initial" animate="enter" className="flex items-center text-white font-helvetica text-[42px] z-1">
-        <span className="block w-2.5 h-2.5 bg-white rounded-full mr-2.5" />
+      <motion.p variants={opacity} initial="initial" animate="enter" className="flex items-center text-[#2F3238] font-helvetica text-[42px] z-1">
+        <span className="block w-2.5 h-2.5 bg-[#2F3238] rounded-full mr-2.5" />
         {words[index]}
       </motion.p>
       <svg className="absolute top-0 w-full h-[calc(100%+300px)]">
-        <motion.path variants={curve} initial="initial" exit="exit" className="fill-secondary"/>
+        <motion.path variants={curve} initial="initial" exit="exit" className="fill-[#D9D9D9]"/>
       </svg>
     </>
   )}

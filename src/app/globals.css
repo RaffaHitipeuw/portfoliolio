@@ -8,22 +8,15 @@
   font-display: swap; 
 }
 @font-face {
-  font-family: 'Phonk';
-  src: url('/assets/fonts/PhonkRegularDEMO.ttf') format('truetype'); 
+  font-family: 'magneta';
+  src: url('/assets/fonts/magneta-semi-bold.ttf') format('truetype'); 
   font-weight: bold;
   font-style: normal;
   font-display: swap; 
 }
 @font-face {
-  font-family: 'Harmond';
-  src: url('/assets/fonts/Harmond-SemBdItaCond.otf') format('opentype'); 
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap; 
-}
-@font-face {
-  font-family: 'Harmonditalic';
-  src: url('/assets/fonts/Harmond-SemiBoldCondensed.otf') format('opentype'); 
+  font-family: 'pixelout';
+  src: url('/assets/fonts/Pixelou.ttf') format('truetype'); 
   font-weight: bold;
   font-style: normal;
   font-display: swap; 
@@ -37,9 +30,9 @@
   --color-tertiary: #D7D7D7;
 
   --font-helvetica: "Helvetica", sans-serif;
-  --font-phonk: "Helvetica", sans-serif;
-  --font-harmond: "Harmonditalic", sans-serif;
-  --font-harmonditalic: "Harmond", sans-serif;
+  --font-magnet: "magneta", sans-serif;
+  --font-pixel: "pixelout", sans-serif;
+
 }
 
 body {

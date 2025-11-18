@@ -1,51 +1,62 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
-import dynamic from "next/dynamic";
-import { useRef } from "react";
 
-const ColorBends = dynamic(() => import("./ColorBends"), { ssr: false });
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Navbar from "./Navbar";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function LandingPage() {
-  const scrollArea = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: scrollArea,
-    offset: ["start start", "end start"]
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.6]);
+  useEffect(() => {
+    gsap.fromTo(
+      ".hero-line",
+      { opacity: 1, y: 0 },
+      {
+        opacity: 0,
+        y: -50,
+        ease: "power3.out",
+        stagger: 0.18,
+        scrollTrigger: {
+          trigger: ".hero-text",
+          start: "top top",
+          end: "bottom+=200 top",
+          scrub: true,
+        }
+      }
+    );
+  }, []);
 
   return (
-    <div ref={scrollArea} className="relative w-full min-h-[250vh]">
+    <div className="relative w-full h-screen bg-[#2F3238] text-[#D9D9D9]">
+      <Navbar />
 
-      <motion.div
-        style={{ scale }}
-        className="h-screen w-full sticky top-0 overflow-hidden bg-secondary"
-      >
-        <ColorBends
-          colors={["#A3D8F4", "#F7A9A8", "#C4F1BE"]}
-          rotation={-50}
-          speed={0.5}
-          scale={1}
-          frequency={1}
-          warpStrength={1}
-          mouseInfluence={1}
-          parallax={0.5}
-          noise={0.01}
-          transparent
-        />
+      <div className="w-full h-full flex flex-col items-center justify-center hero-text">
+        
+        <h1 className="hero-line font-magnet text-3xl leading-2.5 md:text-4xl md:leading-6 xl:text-6xl xl:leading-6">
+          <span className="font-pixel">R</span>AFFA <span className="font-pixel">H</span>ITIPEUW
+        </h1>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none font-harmonditalic text-tertiary">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">In the Mess</h1>
-          <div className="flex flex-row">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">of</h1>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Life</h1>
-            <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl">&</h1>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Work</h1>
-          </div>
-        </div>
-      </motion.div>
+        <h1 className="hero-line font-magnet text-2xl md:text-4xl xl:text-6xl">
+          FRONT END DEVELOPER
+        </h1>
 
+        <h1 className="hero-line font-pixel text-xl leading-4 md:text-4xl md:leading-10 xl:text-6xl xl:leading-16">
+          CRAFTED VISUALS, CLEAN ENERGY
+        </h1>
+
+        <h1 className="hero-line text-xl leading-6 md:text-4xl md:leading-6 xl:text-5xl xl:leading-6">
+          <span className="font-magnet">BASED IN </span>
+          <span className="font-pixel">JAKARTA</span>
+        </h1>
+
+        <h1 className="hero-line text-lg leading-3 md:text-3xl md:leading-9 xl:text-5xl xl:leading-12">
+          <span className="font-pixel">FOLIO</span>
+          <span className="font-magnet">©2025</span>
+        </h1>
+
+      </div>
     </div>
   );
 }
