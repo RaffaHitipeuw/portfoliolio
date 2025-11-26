@@ -9,7 +9,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex gap-6 text-sm md:text-base">
-        <a href="/blog" className="hover:opacity-70 transition-opacity">BLOG</a>
+        <a href="https://blog-raffahitipeuw.vercel.app/" className="hover:opacity-70 transition-opacity">BLOG</a>
         <a href="/contact" className="hover:opacity-70 transition-opacity">CONTACT</a>
         <a href="https://www.linkedin.com/in/raffa-hitipeuw-30124b380/" className="hover:opacity-70 transition-opacity">
           LINKEDIN
