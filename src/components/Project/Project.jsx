@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -6,42 +7,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Project() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [data, setData] = useState([]);
   const refs = useRef([]);
 
-  const data = [
-    {
-      project: "TAPAS",
-      name: "TAPAS",
-      year: "OCT - 25",
-      category: "SUSTAINABLE MOBILITY PLATFORM",
-      desc: "TapasRide adalah platform mobilitas berkelanjutan yang dirancang untuk menghadirkan pengalaman transportasi ramah lingkungan di perkotaan. Menggabungkan teknologi modern dan desain user-friendly, TapasRide bertujuan untuk merevolusi cara orang berpindah-pindah: dari sekadar naik-turun kendaraan konvensional, menjadi bagian dari ekosistem transportasi pintar yang efisien dan bersih.",
-      link: "https://tapas.com"
-    },
-    {
-      project: "TYPION",
-      name: "TYPION TEAM",
-      year: "OCT - 25",
-      category: "PRECISION TYPING PLATFORM",
-      desc: "Typion adalah platform latihan mengetik yang dirancang untuk meningkatkan kecepatan, akurasi, dan ritme mengetik melalui antarmuka sederhana tapi efektif. Dengan fokus kuat pada pengalaman pengguna yang bersih dan gamifikasi minimalis, Typion membantu pengguna dari berbagai level (pemula hingga advanced) untuk mengasah skill mengetik dengan cara yang menyenangkan dan produktif.",
-      link: "https://typion-rose.vercel.app/"
-    },
-    {
-      project: "NIVARA",
-      name: "NIVARAFOUNDER",
-      year: "FEB - 24",
-      category: "VERIFIED ELECTRONICS MARKETPLACE",
-      desc: "Nivara adalah platform jual beli elektronik yang mengutamakan keaslian dan transparansi. Setiap produk dicek kualitasnya sehingga pengguna bisa membeli perangkat elektronik dengan aman dan percaya diri.",
-      link: "#"
-    },
-    {
-      project: "ARCHIPELAGO",
-      name: "PELAGOCULTURE",
-      year: "JAN - 22",
-      category: "MODERN CULTURE SHOWCASE",
-      desc: "Archipelago Culture adalah platform digital yang merayakan keragaman budaya kepulauan Nusantara. Di sini, pengunjung bisa menjelajahi warisan budaya dari berbagai pulau—mulai dari seni tradisional, musik lokal, tradisi turun-temurun, hingga narasi modern yang merangkul akar budaya Indonesia.",
-      link: "#"
-    },
-  ];
+  useEffect(() => {
+    fetch("https://raffahitipeuw.github.io/portasset/data/project/project.json")
+      .then((res) => res.json())
+      .then((json) => setData(json.projects))
+      .catch((err) => console.error("Project fetch error:", err));
+  }, []);
 
   useEffect(() => {
     gsap.utils.toArray(".line").forEach((line) => {
@@ -55,7 +29,7 @@ export default function Project() {
           scrollTrigger: {
             trigger: line,
             start: "top 90%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none reverse"
           }
         }
       );
@@ -86,7 +60,6 @@ export default function Project() {
 
   return (
     <div className="w-full bg-[#2F3238] text-white px-8 py-10">
-
       <div className="grid grid-cols-4 w-full text-[10px] border-b border-white pb-4">
         <span>PROJECT</span>
         <span>PROJECT</span>
@@ -97,7 +70,6 @@ export default function Project() {
       <div className="flex flex-col text-[15px]">
         {data.map((row, idx) => (
           <div key={idx} className="relative">
-
             <div
               onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
               className="group grid grid-cols-4 py-5 font-helvetica transition-all duration-200 cursor-pointer"
@@ -122,9 +94,7 @@ export default function Project() {
               ref={(el) => (refs.current[idx] = el)}
               className="overflow-hidden h-0 opacity-0"
             >
-              <p className="text-[16px] mt-4 leading-6 max-w-3xl">
-                {row.desc}
-              </p>
+              <p className="text-[16px] mt-4 leading-6 max-w-3xl">{row.desc}</p>
 
               <a
                 href={row.link}
@@ -136,7 +106,6 @@ export default function Project() {
 
               <div className="w-full h-px bg-white/20 mt-6"></div>
             </div>
-
           </div>
         ))}
       </div>
